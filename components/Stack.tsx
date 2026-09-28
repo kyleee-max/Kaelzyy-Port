@@ -1,50 +1,8 @@
 "use client";
 
-import { IconType } from "react-icons";
-import {
-  SiJavascript,
-  SiTypescript,
-  SiKotlin,
-  SiPython,
-  SiRust,
-  SiPhp,
-  SiNextdotjs,
-  SiReact,
-  SiMongodb,
-  SiSupabase,
-  SiSqlite,
-  SiMariadb,
-  SiGit,
-  SiDocker,
-  SiVercel,
-  SiGreensock,
-  SiFramer,
-} from "react-icons/si";
 import { motion } from "framer-motion";
 import { stack } from "@/lib/data";
-
-// Maps each badge name to its brand icon. If a name is ever added to
-// lib/data.ts without a matching entry here, the badge just renders without
-// an icon rather than crashing — see the fallback in the item markup below.
-const ICONS: Record<string, IconType> = {
-  JavaScript: SiJavascript,
-  TypeScript: SiTypescript,
-  Kotlin: SiKotlin,
-  Python: SiPython,
-  Rust: SiRust,
-  PHP: SiPhp,
-  "Next.js": SiNextdotjs,
-  React: SiReact,
-  MongoDB: SiMongodb,
-  Supabase: SiSupabase,
-  SQLite: SiSqlite,
-  MariaDB: SiMariadb,
-  Git: SiGit,
-  Docker: SiDocker,
-  Vercel: SiVercel,
-  GSAP: SiGreensock,
-  "Framer Motion": SiFramer,
-};
+import { TECH_ICONS } from "@/lib/icons";
 
 export default function Stack() {
   return (
@@ -63,7 +21,7 @@ export default function Stack() {
               <h3 className="text-sm text-ink/50 font-body mb-3">{group.label}</h3>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => {
-                  const Icon = ICONS[item];
+                  const Icon = TECH_ICONS[item];
                   return (
                     <div
                       key={item}

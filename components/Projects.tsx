@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/data";
 import { useSound } from "@/lib/SoundProvider";
+import { TECH_ICONS } from "@/lib/icons";
 
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
   const [flipped, setFlipped] = useState(false);
@@ -26,7 +27,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
         animate={{ rotateY: flipped ? 180 : 0 }}
         whileHover={{ y: -4 }}
         transition={{ rotateY: { duration: 0.55, ease: [0.65, 0, 0.35, 1] }, y: { duration: 0.2 } }}
-        className="relative h-56 w-full cursor-pointer rounded-2xl border border-ink/15 shadow-sm hover:shadow-lg transition-shadow duration-200 [transform-style:preserve-3d]"
+        className="relative h-56 w-full cursor-pointer rounded-2xl border-2 border-ink shadow-sm hover:shadow-lg transition-shadow duration-200 [transform-style:preserve-3d]"
       >
         {/* front */}
         <div className="absolute inset-0 flex flex-col justify-between p-6 [backface-visibility:hidden]">
@@ -36,14 +37,18 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             <p className="mt-2 text-sm text-ink/60 font-body">{project.tagline}</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            {project.stack.map((s) => (
-              <span
-                key={s}
-                className="text-[11px] font-body text-ink/50 border border-ink/15 rounded-full px-2 py-0.5"
-              >
-                {s}
-              </span>
-            ))}
+            {project.stack.map((s) => {
+              const Icon = TECH_ICONS[s];
+              return (
+                <span
+                  key={s}
+                  className="flex items-center gap-1.5 text-[11px] font-body text-ink/60 border border-ink/30 rounded-full px-2 py-0.5"
+                >
+                  {Icon && <Icon size={12} className="shrink-0" />}
+                  {s}
+                </span>
+              );
+            })}
           </div>
         </div>
 
