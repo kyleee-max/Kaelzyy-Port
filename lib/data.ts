@@ -4,42 +4,40 @@ export type Project = {
   name: string;
   tagline: string;
   stack: string[];
-  href: string;
+  href?: string; // omit for projects that aren't live yet
 };
 
-// TODO(kaelsty): swap these for your real 3-4 flagship projects.
 export const projects: Project[] = [
   {
-    id: "heion",
+    id: "casileys",
     number: "01",
-    name: "Heion Interaktif Jaya",
-    tagline: "Studio product & client engineering under CimyTech.",
-    stack: ["Next.js", "TypeScript", "Supabase"],
-    href: "https://example.com",
+    name: "@kaels/casileys",
+    tagline: "A WhatsApp library built on Baileys, published on npm.",
+    stack: ["TypeScript", "Node.js", "npm"],
+    href: "https://www.npmjs.com/package/@kaels/casileys",
   },
   {
-    id: "project-two",
+    id: "cirest-api",
     number: "02",
-    name: "Project Two",
-    tagline: "One-line description of what it does and for whom.",
-    stack: ["React", "Rust"],
-    href: "https://example.com",
+    name: "CirestApi",
+    tagline: "A REST API service built on Next.js.",
+    stack: ["Next.js", "TypeScript"],
+    href: "https://cirest-api.my.id",
   },
   {
-    id: "project-three",
+    id: "cimytools",
     number: "03",
-    name: "Project Three",
-    tagline: "One-line description of what it does and for whom.",
-    stack: ["Kotlin", "MongoDB"],
-    href: "https://example.com",
+    name: "CimyTools",
+    tagline: "An Android tools app.",
+    stack: ["Kotlin"],
+    href: "https://github.com/kyleee-max/Cimy-tools/actions/runs/35055048942/artifacts/10430616339",
   },
   {
-    id: "project-four",
+    id: "zeroscripts",
     number: "04",
-    name: "Project Four",
-    tagline: "One-line description of what it does and for whom.",
-    stack: ["Python", "Docker"],
-    href: "https://example.com",
+    name: "Zeroscripts",
+    tagline: "A programming language, built on top of Rust — in progress, no domain yet.",
+    stack: ["Rust"],
   },
 ];
 
