@@ -153,11 +153,12 @@ export default function Intro({ onDone }: { onDone: () => void }) {
       );
     });
     tl.to({}, { duration: 0.25 }); // hold as "O"
+    const checkStart = tl.duration();
     dotsRef.current.forEach((d, i) => {
       tl.to(
         d,
         { x: checkPoints[i].x, y: checkPoints[i].y, duration: 0.6, ease: "power2.inOut" },
-        `+=${i * 0.003}`
+        checkStart + i * 0.003
       );
     });
     tl.to({}, { duration: 0.35 }); // hold as checkmark
