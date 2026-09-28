@@ -154,11 +154,15 @@ export default function Intro({ onDone }: { onDone: () => void }) {
     });
     tl.to({}, { duration: 0.25 }); // hold as "O"
     const checkStart = tl.duration();
+    // Random (not index-ordered) offsets: circle points are ordered by angle
+    // and checkmark points are ordered along the path, so an index-based
+    // stagger here would read as a visible "drawing" sweep instead of one
+    // coordinated snap.
     dotsRef.current.forEach((d, i) => {
       tl.to(
         d,
-        { x: checkPoints[i].x, y: checkPoints[i].y, duration: 0.6, ease: "power2.inOut" },
-        checkStart + i * 0.003
+        { x: checkPoints[i].x, y: checkPoints[i].y, duration: 0.45, ease: "power2.inOut" },
+        checkStart + Math.random() * 0.12
       );
     });
     tl.to({}, { duration: 0.35 }); // hold as checkmark
