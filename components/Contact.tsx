@@ -19,7 +19,7 @@ function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-const ICONS: Record<string, (props: React.SVGProps<SVGSVGElement>) => JSX.Element> = {
+const ICONS: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
   whatsapp: WhatsAppIcon,
   email: Mail,
   tiktok: TikTokIcon,
